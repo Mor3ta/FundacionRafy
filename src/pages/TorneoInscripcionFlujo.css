@@ -1,0 +1,123 @@
+.torneo-inscripcion-page{
+    background-color: #ff9633;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 30px;
+}
+
+.torneo-reglas-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+        width: 85%;
+        margin: 0 auto;
+        font-size: 1.2rem;
+        font-weight: 600;
+        text-align: justify;
+        padding-bottom: 40px;
+}
+
+.torneo-reglas-titulo{
+    line-height: 10px;
+    margin-top: 40px;
+    font-weight: 700;
+   
+}
+
+.form-check{
+    background-color: #ffca99;
+    border-radius: 4px;
+    margin: 0 auto;
+    padding: 10px;
+    text-align: center;
+    text-transform: uppercase;
+    width: 80%;
+}
+
+.form-check .form-check-input{
+    margin-right: 20px;
+}
+
+.torneo-reglas-btnContinuar{
+   background-color: black;
+   color: #ffff;
+   text-align: center;
+   padding: 10px 20px;
+   font-size: 1rem;
+   border-radius: 5px;
+   width: 40%;
+   margin: 30px;
+    
+
+}
+
+.torneo-reglas-subtitulo{
+ font-size: 30px;
+ margin-bottom: 40px;
+ font-weight: 700;
+}
+
+
+.form-inscripcion-container{
+    width: 50%;
+    margin: 0 auto;
+    font-size: 24px;
+    
+}
+
+.torneo-form-seccionTitulos{
+    font-size: 20px;
+    text-transform: uppercase;
+    margin-left: 30px;
+}
+
+.torneo-form-btnEnviar{
+    
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    
+    
+}
+@media (max-width: 1024px) {
+
+.torneo-reglas-titulo{
+     line-height: 28px; 
+     margin-top: 40px;
+     font-weight: 400;
+     font-size: 30px;
+}
+
+.torneo-reglas-subtitulo{
+    font-size: 20px;
+    line-height: 30px; 
+}
+
+.torneo-reglas-container p{
+    font-weight: 200;
+    text-align: left;
+}
+
+.form-check-label{
+    font-size: 1rem;
+    font-weight: 600;
+    text-transform: initial;
+}
+
+.form-check{
+    width: 100%;
+    text-align: left;
+
+}
+
+.torneo-reglas-btnContinuar{
+    width: 80%;
+}
+
+.form-inscripcion-container{
+    width: 100%;
+}
+
+}
