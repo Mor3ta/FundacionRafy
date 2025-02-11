@@ -124,11 +124,9 @@ const TorneoInscripcionFlujo = () => {
             <h4 className='torneo-form-seccionTitulos'> Datos del Manger </h4>
             <div>
               <div className="m-3 col-md-12 ">
-                
                 <input placeholder='Nombre Completo' type="text" className="form-control" name="manager" value={formData.manager} onChange={handleChange} required />
               </div>
               <div className="m-3 col-md-12">
-      
                 <input type="tel"  placeholder="Telefono" className="form-control" name="telefono" value={formData.telefono} onChange={handleChange} required />
               </div>
             </div>
@@ -159,21 +157,15 @@ const TorneoInscripcionFlujo = () => {
                   ))}
                 </select>
               </div>
-
             </div>
            
            <div className='torneo-form-btnEnviar'>
               <button type="submit" className="btn btn-dark w-50">Enviar</button>
-
            </div>
           </form>
         </div>
       )}
     </div>
-
-
-
-
     </div>
    
   );
