@@ -1,6 +1,7 @@
 // src/components/Banner.jsx
 import React from 'react';
 import './Banner.css'; // Importamos el archivo de estilos
+import { Link } from 'react-router-dom';
 
 const Banner = () => {
   return (
@@ -8,7 +9,10 @@ const Banner = () => {
       <div className="banner-content">
         <h1>Desafío de Gigantes</h1>
         <p>Inscríbete en el torneo y demuestra tu grandeza.</p>
-        <button className="cta-button">Inscribirse</button>
+        <div>
+          <Link to="/inscripcion-torneo" className="inscripcion-button">Inscripción Torneo</Link>
+        </div>
+       
       </div>
     </section>
   );

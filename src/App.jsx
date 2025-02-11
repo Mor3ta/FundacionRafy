@@ -15,7 +15,6 @@ function App() {
         <Route path="/" element={<>
           <Header />
           <Banner />
-          <Noticias />
         </>} />
         <Route path="/inscripcion-torneo" element={<TorneoInscripcionFlujo />} />
       </Routes>
