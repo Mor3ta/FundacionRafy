@@ -111,10 +111,10 @@ const FormularioEscolar = () => {
 
         <h4>Datos Escolares</h4>
         <div className="mb-3">
-          <input type="text" placeholder="Nombre del Colegio" className="form-control" name="escuela" value={formData.escuela} onChange={handleChange} required />
+          <input type="text" placeholder="Centro Educativo" className="form-control" name="CentroEducativo" value={formData.escuela} onChange={handleChange} required />
         </div>
         <div className="mb-3">
-          <input type="text" placeholder="Grado" className="form-control" name="grado" value={formData.grado} onChange={handleChange} required />
+          <input type="text" placeholder="Distrito Educativo" className="form-control" name="DistritoEducativo" value={formData.grado} onChange={handleChange} required />
         </div>
 
         <h4>Datos del Equipo</h4>
