@@ -76,7 +76,7 @@ const FormularioEscolar = () => {
     setLoading(true);
     
     try {
-      const response = await fetch("https://torneoapi1.azurewebsites.net//api/inscripcion-escolar", {
+      const response = await fetch("https://torneoapi1.azurewebsites.net/api/inscripcion-escolar", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(formData),
