@@ -85,6 +85,7 @@ const FormularioEscolar = () => {
       if (response.ok) {
         alert("Inscripción guardada con éxito");
       } else {
+        console.log(response);
         alert("Error al enviar la inscripción");
       }
     } catch (error) {
