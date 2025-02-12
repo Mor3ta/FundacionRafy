@@ -1,76 +1,50 @@
 import React, { useState } from "react";
 
+// Lista de provincias
 const provinciasRD = [
-    "Azua",
-    "Bahoruco",
-    "Barahona",
-    "Dajabón",
-    "Distrito Nacional",
-    "Duarte",
-    "El Seibo",
-    "Elías Piña",
-    "Espaillat",
-    "Hato Mayor",
-    "Hermanas Mirabal",
-    "Independencia",
-    "La Altagracia",
-    "La Romana",
-    "La Vega",
-    "María Trinidad Sánchez",
-    "Monseñor Nouel",
-    "Monte Cristi",
-    "Monte Plata",
-    "Pedernales",
-    "Peravia",
-    "Puerto Plata",
-    "Samaná",
-    "San Cristóbal",
-    "San José de Ocoa",
-    "San Juan",
-    "San Pedro de Macorís",
-    "Sánchez Ramírez",
-    "Santiago",
-    "Santiago Rodríguez",
-    "Santo Domingo",
-    "Valverde"
-  ];
+  "Azua", "Bahoruco", "Barahona", "Dajabón", "Distrito Nacional", "Duarte", 
+  "El Seibo", "Elías Piña", "Espaillat", "Hato Mayor", "Hermanas Mirabal", 
+  "Independencia", "La Altagracia", "La Romana", "La Vega", "María Trinidad Sánchez",
+  "Monseñor Nouel", "Monte Cristi", "Monte Plata", "Pedernales", "Peravia",
+  "Puerto Plata", "Samaná", "San Cristóbal", "San José de Ocoa", "San Juan",
+  "San Pedro de Macorís", "Sánchez Ramírez", "Santiago", "Santiago Rodríguez",
+  "Santo Domingo", "Valverde"
+];
 
-  const municipiosRD = [
-    "Azua", "Las Charcas", "Las Yayas de Viajama", "Padre Las Casas", "Peralta", "Pueblo Viejo", "Sabana Yegua", "Tábara Arriba", "Estebanía", "Guayabal",
-    "Neiba", "Galván", "Los Ríos", "Tamayo", "Villa Jaragua",
-    "Barahona", "Cabral", "El Peñón", "Enriquillo", "Fundación", "Jaquimeyes", "La Ciénaga", "Las Salinas", "Paraíso", "Polo", "Vicente Noble",
-    "Dajabón", "El Pino", "Loma de Cabrera", "Partido", "Restauración",
-    "Distrito Nacional",
-    "San Francisco de Macorís", "Arenoso", "Castillo", "Eugenio María de Hostos", "Las Guáranas", "Pimentel", "Villa Riva",
-    "El Seibo", "Miches",
-    "Comendador", "Bánica", "El Llano", "Hondo Valle", "Juan Santiago", "Pedro Santana",
-    "Moca", "Cayetano Germosén", "Gaspar Hernández", "Jamao al Norte",
-    "Hato Mayor del Rey", "El Valle", "Sabana de la Mar",
-    "Salcedo", "Tenares", "Villa Tapia",
-    "Jimaní", "Cristóbal", "Duvergé", "La Descubierta", "Mella", "Postrer Río",
-    "Higüey", "San Rafael del Yuma",
-    "La Romana", "Guaymate", "Villa Hermosa",
-    "La Vega", "Constanza", "Jarabacoa", "Jima Abajo",
-    "Nagua", "Cabrera", "El Factor", "Río San Juan",
-    "Bonao", "Maimón", "Piedra Blanca",
-    "Monte Cristi", "Castañuelas", "Guayubín", "Las Matas de Santa Cruz", "Pepillo Salcedo", "Villa Vásquez",
-    "Monte Plata", "Bayaguana", "Peralvillo", "Sabana Grande de Boyá", "Yamasá",
-    "Pedernales",
-    "Baní", "Matanzas", "Nizao",
-    "Puerto Plata", "Altamira", "Guananico", "Imbert", "Los Hidalgos", "Luperón", "Sosúa", "Villa Isabela", "Villa Montellano",
-    "Samaná", "Las Terrenas", "Sánchez",
-    "San Cristóbal", "Bajos de Haina", "Cambita Garabitos", "Los Cacaos", "Sabana Grande de Palenque", "San Gregorio de Nigua", "Villa Altagracia", "Yaguate",
-    "San José de Ocoa", "Rancho Arriba", "Sabana Larga",
-    "San Juan de la Maguana", "Bohechío", "El Cercado", "Juan de Herrera", "Las Matas de Farfán", "Vallejuelo",
-    "San Pedro de Macorís", "Consuelo", "Guayacanes", "Quisqueya", "Ramón Santana", "San José de los Llanos",
-    "Cotuí", "Cevicos", "Fantino", "La Mata",
-    "Santiago", "Bisonó (Navarrete)", "Jánico", "Licey al Medio", "Puñal", "Sabana Iglesia", "San José de las Matas", "Tamboril", "Villa Bisonó", "Villa González",
-    "San Ignacio de Sabaneta", "Los Almácigos", "Monción",
-    "Santo Domingo Este", "Santo Domingo Oeste", "Santo Domingo Norte", "Boca Chica", "Los Alcarrizos", "Pedro Brand", "San Antonio de Guerra",
-    "Mao", "Esperanza", "Laguna Salada"
-  ];
-
-
+const municipiosRD = {
+  "Azua": ["Azua", "Estebanía", "Guayabal", "Las Charcas", "Las Yayas de Viajama", "Padre Las Casas", "Peralta", "Pueblo Viejo", "Sabana Yegua", "Tábara Arriba"],
+  "Bahoruco": ["Neiba", "Galván", "Los Ríos", "Tamayo", "Villa Jaragua"],
+  "Barahona": ["Barahona", "Cabral", "El Peñón", "Enriquillo", "Fundación", "Jaquimeyes", "La Ciénaga", "Las Salinas", "Paraíso", "Polo", "Vicente Noble"],
+  "Dajabón": ["Dajabón", "El Pino", "Loma de Cabrera", "Partido", "Restauración"],
+  "Distrito Nacional": ["Distrito Nacional"],
+  "Duarte": ["San Francisco de Macorís", "Arenoso", "Castillo", "Eugenio María de Hostos", "Las Guáranas", "Pimentel", "Villa Riva"],
+  "El Seibo": ["El Seibo", "Miches"],
+  "Elías Piña": ["Comendador", "Bánica", "El Llano", "Hondo Valle", "Juan Santiago", "Pedro Santana"],
+  "Espaillat": ["Moca", "Cayetano Germosén", "Gaspar Hernández", "Jamao al Norte"],
+  "Hato Mayor": ["Hato Mayor del Rey", "El Valle", "Sabana de la Mar"],
+  "Hermanas Mirabal": ["Salcedo", "Tenares", "Villa Tapia"],
+  "Independencia": ["Jimaní", "Cristóbal", "Duvergé", "La Descubierta", "Mella", "Postrer Río"],
+  "La Altagracia": ["Higüey", "San Rafael del Yuma"],
+  "La Romana": ["La Romana", "Guaymate", "Villa Hermosa"],
+  "La Vega": ["La Vega", "Constanza", "Jarabacoa", "Jima Abajo"],
+  "María Trinidad Sánchez": ["Nagua", "Cabrera", "El Factor", "Río San Juan"],
+  "Monseñor Nouel": ["Bonao", "Maimón", "Piedra Blanca"],
+  "Monte Cristi": ["Monte Cristi", "Castañuela", "Guayubín", "Las Matas de Santa Cruz", "Pepillo Salcedo", "Villa Vásquez"],
+  "Monte Plata": ["Monte Plata", "Bayaguana", "Peralvillo", "Sabana Grande de Boyá", "Yamasá"],
+  "Pedernales": ["Pedernales", "Oviedo"],
+  "Peravia": ["Baní", "Nizao", "Matanzas"],
+  "Puerto Plata": ["Puerto Plata", "Altamira", "Guananico", "Imbert", "Los Hidalgos", "Luperón", "Sosúa", "Villa Isabela", "Villa Montellano"],
+  "Samaná": ["Samaná", "Las Terrenas", "Sánchez"],
+  "San Cristóbal": ["San Cristóbal", "Bajos de Haina", "Cambita Garabitos", "Los Cacaos", "Sabana Grande de Palenque", "San Gregorio de Nigua", "Villa Altagracia", "Yaguate"],
+  "San José de Ocoa": ["San José de Ocoa", "Sabana Larga", "Rancho Arriba"],
+  "San Juan": ["San Juan de la Maguana", "Bohechío", "El Cercado", "Juan de Herrera", "Las Matas de Farfán", "Vallejuelo"],
+  "San Pedro de Macorís": ["San Pedro de Macorís", "Consuelo", "Guayacanes", "Quisqueya", "Ramón Santana"],
+  "Sánchez Ramírez": ["Cotuí", "Cevicos", "Fantino", "La Mata"],
+  "Santiago": ["Santiago", "Bisonó", "Jánico", "Licey al Medio", "Puñal", "Sabana Iglesia", "San José de las Matas", "Tamboril", "Villa Bisonó", "Villa González"],
+  "Santiago Rodríguez": ["Santiago Rodríguez", "Monción", "San Ignacio de Sabaneta"],
+  "Santo Domingo": ["Santo Domingo Este", "Santo Domingo Norte", "Santo Domingo Oeste", "Boca Chica", "Los Alcarrizos", "Pedro Brand", "San Antonio de Guerra"],
+  "Valverde": ["Mao", "Esperanza", "Laguna Salada"]
+};
 
 
 const FormularioComunitario = () => {
@@ -86,6 +60,11 @@ const FormularioComunitario = () => {
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
+
+    // Si cambia la provincia, resetear el municipio
+    if (name === "provincia") {
+      setFormData({ ...formData, provincia: value, municipio: "" });
+    }
   };
 
   const handleSubmit = async (e) => {
@@ -153,8 +132,7 @@ const FormularioComunitario = () => {
         <input type="text" placeholder='Nombre del Equipo' className="form-control" name="equipo" value={formData.equipo} onChange={handleChange} required />
       </div>
 
-      <div >
-        <div className="m-3 col-md-12">
+      <div className="mb-3">
           <select className="form-select" name="provincia" value={formData.provincia} onChange={handleChange} required>
             <option value="">Selecciona una provincia</option>
             {provinciasRD.map((prov, index) => (
@@ -162,19 +140,20 @@ const FormularioComunitario = () => {
             ))}
           </select>
         </div>
-        <div className="m-3 col-md-12">
-          <select className="form-select" name="municipio" value={formData.municipio} onChange={handleChange} required>
+        <div className="mb-3">
+          <select className="form-select" name="municipio" value={formData.municipio} onChange={handleChange} required disabled={!formData.provincia}>
             <option value="">Selecciona un municipio</option>
-            {municipiosRD.map((mun, index) => (
+            {municipiosRD[formData.provincia]?.map((mun, index) => (
               <option key={index} value={mun}>{mun}</option>
             ))}
           </select>
         </div>
-      </div>
      
-     <div className='torneo-form-btnEnviar'>
-        <button type="submit" className="btn btn-dark w-50">Enviar</button>
-     </div>
+        <div className="text-center">
+          <button type="submit" className="btn btn-dark w-50" disabled={loading}>
+            {loading ? <span className="spinner-border spinner-border-sm"></span> : "Enviar"}
+          </button>
+        </div>
     </form>
     </div>
   );

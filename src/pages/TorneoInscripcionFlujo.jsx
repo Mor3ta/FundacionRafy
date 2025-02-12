@@ -32,26 +32,26 @@ const TorneoInscripcionFlujo = () => {
           <span className="text-center torneo-reglas-subtitulo" >Reglas del Torneo</span>
           <div className='torneo-reglas-container'>
 
-              <p> 1.La inscripción es gratuita.</p>
+          <p> 1.La inscripción es gratuita.</p>
               <p> 2.Cada equipo debe tener 20 jugadores.</p>
               <p> 3.El mánager inscribe y representa al equipo.</p>
-              <p> 4.Cada miembro del equipo debe vender 50 boletas para aportar 50,000 pesos al equipo 
+              <p> 4.El evento deportivo con los equipos escolares iniciará el tercer sábado de abril 
+                y terminará el último domingo de mayo.</p>
+              <p> 5.Se debe realizar una eliminatoria por distrito educativo. 
+                Luego, competirán los distritos más cercanos hasta elegir un campeón nacional.</p>
+              <p> 6. Se premiará a un campeón por distrito y, posteriormente, al campeón nacional.</p>
+              <p> 7. Los equipos que avancen podrán reforzarse con jugadores eliminados, siempre que pertenezcan al mismo distrito educativo.</p>
+              <p> 8. La primera eliminatoria de los equipos de cada distrito será por muerte súbita, 
+                y la final entre los dos equipos restantes será al mejor de cinco partidos (3-2). 
+                Lo mismo aplicará en la segunda ronda con los representantes de cada distrito.</p>
+              <p> 9. Los equipos campeones de cada distrito recibirán un trofeo y 50,000 pesos, 
+                mientras que los subcampeones recibirán un trofeo y 25,000 pesos.</p>
+              <p>10.El campeón nacional recibirá un trofeo y un millón de pesos,
+                 mientras que el subcampeón nacional recibirá un trofeo y medio millón de pesos.</p>
+              <p> 11.Cada miembro del equipo debe vender 50 boletas para aportar 50,000 pesos al equipo 
                 y así cubrir los gastos de los uniformes oficiales de las olimpiadas.
                 El resto del dinero debe depositarse en la cuenta de la Fundación para cubrir los gastos de premios y 
                 montaje del evento a nivel nacional. Estas boletas servirán como entradas a los eventos deportivos.</p>
-              <p> 5.El evento deportivo con los equipos escolares iniciará el tercer sábado de abril 
-                y terminará el último domingo de mayo.</p>
-              <p> 6.Se debe realizar una eliminatoria por distrito educativo. 
-                Luego, competirán los distritos más cercanos hasta elegir un campeón nacional.</p>
-              <p> 7. Se premiará a un campeón por distrito y, posteriormente, al campeón nacional.</p>
-              <p> 8. Los equipos que avancen podrán reforzarse con jugadores eliminados, siempre que pertenezcan al mismo distrito educativo.</p>
-              <p> 9. La primera eliminatoria de los equipos de cada distrito será por muerte súbita, 
-                y la final entre los dos equipos restantes será al mejor de cinco partidos (3-2). 
-                Lo mismo aplicará en la segunda ronda con los representantes de cada distrito.</p>
-              <p> 10. Los equipos campeones de cada distrito recibirán un trofeo y 50,000 pesos, 
-                mientras que los subcampeones recibirán un trofeo y 25,000 pesos.</p>
-              <p>El campeón nacional recibirá un trofeo y un millón de pesos,
-                 mientras que el subcampeón nacional recibirá un trofeo y medio millón de pesos.</p>
           </div>
 
             <div className="form-check-confirmacion">
