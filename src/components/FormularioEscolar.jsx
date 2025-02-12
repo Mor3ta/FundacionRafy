@@ -52,10 +52,12 @@ const FormularioEscolar = () => {
     manager: "",
     telefono: "",
     email: "",
-    escuela: "",
-    grado: "",
+    CentroEducativo: "",
+    DistritoEducativo: "",
     provincia: "",
     municipio: "",
+    disciplina: ""
+
   });
   const [loading, setLoading] = useState(false);
 
@@ -111,10 +113,10 @@ const FormularioEscolar = () => {
 
         <h4>Datos Escolares</h4>
         <div className="mb-3">
-          <input type="text" placeholder="Centro Educativo" className="form-control" name="CentroEducativo" value={formData.escuela} onChange={handleChange} required />
+          <input type="text" placeholder="Centro Educativo" className="form-control" name="CentroEducativo" value={formData.CentroEducativo} onChange={handleChange} required />
         </div>
         <div className="mb-3">
-          <input type="text" placeholder="Distrito Educativo" className="form-control" name="DistritoEducativo" value={formData.grado} onChange={handleChange} required />
+          <input type="text" placeholder="Distrito Educativo" className="form-control" name="DistritoEducativo" value={formData.DistritoEducativo} onChange={handleChange} required />
         </div>
 
         <h4>Datos del Equipo</h4>
