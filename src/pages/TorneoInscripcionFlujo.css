@@ -20,13 +20,13 @@
 }
 
 .torneo-reglas-titulo{
-    line-height: 10px;
+    line-height: 5px;
     margin-top: 40px;
     font-weight: 700;
    
 }
 
-.form-check{
+.form-check-confirmacion{
     background-color: #ffca99;
     border-radius: 4px;
     margin: 0 auto;
@@ -40,6 +40,14 @@
     margin-right: 20px;
 }
 
+.container-tipoEquipo{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin-bottom: 20px;
+    padding: 20px;
+    font-size: 1.5rem;
+}
 .torneo-reglas-btnContinuar{
    background-color: black;
    color: #ffff;
@@ -54,7 +62,7 @@
 }
 
 .torneo-reglas-subtitulo{
- font-size: 30px;
+ font-size: 25px;
  margin-bottom: 40px;
  font-weight: 700;
 }
@@ -71,16 +79,18 @@
     font-size: 20px;
     text-transform: uppercase;
     margin-left: 30px;
+    
 }
 
+.torneo-reglas-titulo{
+
+}
 .torneo-form-btnEnviar{
-    
     display: flex;
     justify-content: center;
     margin-top: 20px;
-    
-    
 }
+
 @media (max-width: 1024px) {
 
 .torneo-reglas-titulo{
