@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 
+// Lista de provincias
 const provinciasRD = [
     "Azua", "Bahoruco", "Barahona", "Dajabón", "Distrito Nacional", "Duarte", 
     "El Seibo", "Elías Piña", "Espaillat", "Hato Mayor", "Hermanas Mirabal", 
@@ -9,8 +10,8 @@ const provinciasRD = [
     "San Pedro de Macorís", "Sánchez Ramírez", "Santiago", "Santiago Rodríguez",
     "Santo Domingo", "Valverde"
   ];
-  
-  const municipiosRD = {
+
+const municipiosRD = {
     "Azua": ["Azua", "Estebanía", "Guayabal", "Las Charcas", "Las Yayas de Viajama", "Padre Las Casas", "Peralta", "Pueblo Viejo", "Sabana Yegua", "Tábara Arriba"],
     "Bahoruco": ["Neiba", "Galván", "Los Ríos", "Tamayo", "Villa Jaragua"],
     "Barahona": ["Barahona", "Cabral", "El Peñón", "Enriquillo", "Fundación", "Jaquimeyes", "La Ciénaga", "Las Salinas", "Paraíso", "Polo", "Vicente Noble"],
@@ -45,8 +46,6 @@ const provinciasRD = [
     "Valverde": ["Mao", "Esperanza", "Laguna Salada"]
   };
   
-
-
 const FormularioEscolar = () => {
   const [formData, setFormData] = useState({
     nombreEquipo: "",
@@ -98,7 +97,7 @@ const FormularioEscolar = () => {
     <div className="card shadow p-4">
       <h2 className="text-center">Torneo Deportivo "Desafío de Gigantes"</h2>
       <span className="text-center">Formulario de Inscripción Escolar</span>
-      <form >
+      <form onSubmit={handleSubmit}>
         <h4>Datos del Manager</h4>
         <div className="mb-3">
           <input type="text" placeholder="Nombre Completo" className="form-control" name="manager" value={formData.manager} onChange={handleChange} required />
@@ -119,6 +118,24 @@ const FormularioEscolar = () => {
         </div>
 
         <h4>Datos del Equipo</h4>
+        <div className="m-3 col-12">
+       
+            <select  className="form-select" name="disciplina" value={formData.disciplina} onChange={handleChange} required>
+            <option value="">Selecciona una disciplina</option>
+            <option value="Atletismo">Atletismo</option>
+            <option value="Aljedrez">Aljedrez</option>
+            <option value="Beisbol">Beisbol</option>
+            <option value="Baloncesto">Baloncesto</option>
+            <option value="Ciclismo">Ciclismo</option>
+            <option value="Domino">Domino</option>
+            <option value="Voleibol">Voleibol</option>
+            <option value="Futbol">Futbol</option>
+            <option value="Sóftbol">Sóftbol</option>
+            </select>
+        </div>
+
+
+
         <div className="mb-3">
           <input type="text" placeholder="Nombre del Equipo" className="form-control" name="nombreEquipo" value={formData.nombreEquipo} onChange={handleChange} required />
         </div>
