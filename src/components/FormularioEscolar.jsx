@@ -81,11 +81,12 @@ const FormularioEscolar = () => {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(formData),
       });
-
+  
       if (response.ok) {
         alert("Inscripción guardada con éxito");
       } else {
-        console.log(response);
+        const errorData = await response.json();
+        console.error("Error en la respuesta:", errorData);
         alert("Error al enviar la inscripción");
       }
     } catch (error) {
@@ -95,6 +96,7 @@ const FormularioEscolar = () => {
     
     setLoading(false);
   };
+  
 
   return (
     <div className="card shadow p-4">

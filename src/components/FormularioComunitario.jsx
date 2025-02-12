@@ -91,16 +91,29 @@ const FormularioComunitario = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
-    
+  
     try {
-      await new Promise(resolve => setTimeout(resolve, 2000)); // Simulación de envío
-      console.log("Datos enviados:", formData);
+      const response = await fetch("https://torneoapi1.azurewebsites.net/api/inscripciones", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+      });
+  
+      if (response.ok) {
+        alert("Inscripción guardada con éxito");
+      } else {
+        const errorData = await response.json();
+        console.error("Error en la respuesta:", errorData);
+        alert("Error al enviar la inscripción");
+      }
     } catch (error) {
-      console.error("Error al enviar:", error);
+      console.error("Error en la solicitud:", error);
+      alert("Error en la conexión con el servidor");
     }
-    
+  
     setLoading(false);
   };
+  
 
   return (
     <div className="card shadow p-4 ">
