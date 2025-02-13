@@ -32,7 +32,7 @@ const TorneoInscripcionFlujo = () => {
           <span className="text-center torneo-reglas-subtitulo" >Reglas del Torneo</span>
           <div className='torneo-reglas-container'>
 
-          <p> 1.La inscripción es gratuita.</p>
+              <p> 1.La inscripción es gratuita.</p>
               <p> 2.Cada equipo debe tener 20 jugadores.</p>
               <p> 3.El mánager inscribe y representa al equipo.</p>
               <p> 4.El evento deportivo con los equipos escolares iniciará el tercer sábado de abril 
@@ -42,7 +42,7 @@ const TorneoInscripcionFlujo = () => {
               <p> 6. Se premiará a un campeón por distrito y, posteriormente, al campeón nacional.</p>
               <p> 7. Los equipos que avancen podrán reforzarse con jugadores eliminados, siempre que pertenezcan al mismo distrito educativo.</p>
               <p> 8. La primera eliminatoria de los equipos de cada distrito será por muerte súbita, 
-                y la final entre los dos equipos restantes será al mejor de cinco partidos (3-2). 
+                y la final entre los dos equipos restantes será al mejor de tres partidos (3-2). 
                 Lo mismo aplicará en la segunda ronda con los representantes de cada distrito.</p>
               <p> 9. Los equipos campeones de cada distrito recibirán un trofeo y 50,000 pesos, 
                 mientras que los subcampeones recibirán un trofeo y 25,000 pesos.</p>
