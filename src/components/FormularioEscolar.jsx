@@ -56,7 +56,6 @@ const FormularioEscolar = () => {
     DistritoEducativo: "",
     provincia: "",
     municipio: "",
-    disciplina: ""
 
   });
   const [loading, setLoading] = useState(false);
@@ -123,24 +122,6 @@ const FormularioEscolar = () => {
         </div>
 
         <h4>Datos del Equipo</h4>
-        <div className="m-3 col-12">
-       
-            <select  className="form-select" name="disciplina" value={formData.disciplina} onChange={handleChange} required>
-            <option value="">Selecciona una disciplina</option>
-            <option value="Atletismo">Atletismo</option>
-            <option value="Aljedrez">Aljedrez</option>
-            <option value="Beisbol">Beisbol</option>
-            <option value="Baloncesto">Baloncesto</option>
-            <option value="Ciclismo">Ciclismo</option>
-            <option value="Domino">Domino</option>
-            <option value="Voleibol">Voleibol</option>
-            <option value="Futbol">Futbol</option>
-            <option value="Sóftbol">Sóftbol</option>
-            </select>
-        </div>
-
-
-
         <div className="mb-3">
           <input type="text" placeholder="Nombre del Equipo" className="form-control" name="nombreEquipo" value={formData.nombreEquipo} onChange={handleChange} required />
         </div>
