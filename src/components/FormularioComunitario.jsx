@@ -1,4 +1,8 @@
 import React, { useState } from "react";
+import { Modal, Button } from "react-bootstrap";
+import { useNavigate } from "react-router-dom";
+
+
 
 // Lista de provincias
 const provinciasRD = [
@@ -56,6 +60,17 @@ const FormularioComunitario = () => {
     comunidad: "",
   });
   const [loading, setLoading] = useState(false);
+  const [modalShow, setModalShow] = useState(false);
+  const [modalMessage, setModalMessage] = useState("");
+  const [modalError, setModalError] = useState(false);
+  const navigate = useNavigate();
+
+  const handleClose = () => {
+    setModalShow(false);
+    if (!modalError) {
+      navigate("/"); // Redireccionar a la página principal si no hubo error
+    }
+  };
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -79,17 +94,26 @@ const FormularioComunitario = () => {
       });
   
       if (response.ok) {
-        alert("Inscripción guardada con éxito");
+        setModalMessage("✅ Inscripción enviada correctamente. ¡Gracias por registrarte!");
+        setModalError(false);
+        setFormData({
+          nombreEquipo: "",
+          manager: "",
+          telefono: "",
+          email: "",
+          comunidad: "",
+        });
+          
       } else {
-        const errorData = await response.json();
-        console.error("Error en la respuesta:", errorData);
-        alert("Error al enviar la inscripción");
+        setModalMessage("❌ Hubo un problema al enviar la inscripción. Inténtalo de nuevo más tarde.");
+        setModalError(true);
       }
     } catch (error) {
-      console.error("Error en la solicitud:", error);
-      alert("Error en la conexión con el servidor");
+      setModalMessage("❌ No pudimos conectar con el servidor. Verifica tu conexión e intenta nuevamente.");
+      setModalError(true);
     }
   
+    setModalShow(true);
     setLoading(false);
   };
   
@@ -99,8 +123,9 @@ const FormularioComunitario = () => {
     <h2 className="text-center"> Torneo Deportivo  "Desafio de Gigantes"</h2>
     <span className='text-center torneo-reglas-subtitulo'>Formulario de Inscripcion Comunitario </span>
     <form className='form-inscripcion-container' onSubmit={handleSubmit}>
-    <div className="m-3 col-12">
-       
+    <h4 className='torneo-form-seccionTitulos'> Elige la Disciplina </h4>
+
+    <div className="m-3 col-12 torneo-diciplinas">
         <select  className="form-select" name="disciplina" value={formData.disciplina} onChange={handleChange} required>
           <option value="">Selecciona una disciplina</option>
           <option value="Atletismo">Atletismo</option>
@@ -132,7 +157,7 @@ const FormularioComunitario = () => {
         <input type="text" placeholder='Nombre del Equipo' className="form-control" name="equipo" value={formData.equipo} onChange={handleChange} required />
       </div>
 
-      <div className="mb-3">
+      <div className="m-3 col-md-12">
           <select className="form-select" name="provincia" value={formData.provincia} onChange={handleChange} required>
             <option value="">Selecciona una provincia</option>
             {provinciasRD.map((prov, index) => (
@@ -140,7 +165,7 @@ const FormularioComunitario = () => {
             ))}
           </select>
         </div>
-        <div className="mb-3">
+        <div className="m-3 col-md-12">
           <select className="form-select" name="municipio" value={formData.municipio} onChange={handleChange} required disabled={!formData.provincia}>
             <option value="">Selecciona un municipio</option>
             {municipiosRD[formData.provincia]?.map((mun, index) => (
@@ -155,6 +180,13 @@ const FormularioComunitario = () => {
           </button>
         </div>
     </form>
+      <Modal show={modalShow} onHide={handleClose} centered>
+        <Modal.Body className={modalError ? "text-danger text-center" : "text-success text-center"}>
+          {modalMessage}
+          <Button variant="dark" onClick={handleClose}>Cerrar</Button>
+        </Modal.Body>
+      </Modal>
+
     </div>
   );
 };

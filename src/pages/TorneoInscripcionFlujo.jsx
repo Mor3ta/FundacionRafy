@@ -12,26 +12,29 @@ const TorneoInscripcionFlujo = () => {
   const [paso, setPaso] = useState(1);
   const [confirmacion, setConfirmacion] = useState(false);
   const [tipoEquipo, setTipoEquipo] = useState('');
+  const [opcionSeleccionada, setOpcionSeleccionada] = useState(false);
 
   const handleConfirmacion = (e) => {
     setConfirmacion(e.target.checked);
   };
 
   const handleTipoEquipoChange = (e) => {
-    setTipoEquipo(e.target.value);
+    if (!opcionSeleccionada) { // Solo permite la selección una vez
+      setTipoEquipo(e.target.value);
+      setOpcionSeleccionada(true); // Deshabilita los inputs después de la selección
+    }
   };
 
   return (
    
     <div className='torneo-inscripcion-page'>
-    <div className="container" style={{ fontFamily: 'Poppins, sans-serif', minHeight: '80vh', marginTop:'30px', width:'80%' }}>
+        <h2 className="text-center torneo-reglas-titulo">Torneo "Desafio de Gigantes"</h2>
+        <span className="text-center torneo-reglas-subtitulo" >Reglas del Torneo</span>
+    <div className="container" style={{ fontFamily: 'Poppins, sans-serif', minHeight: '80vh', marginTop:'30px', width:'100%' }}>
         {paso === 1 && (
         
-        <div className="card shadow p-4  torneo-reglas-container">
-          <h2 className="text-center torneo-reglas-titulo">Torneo "Desafio de Gigantes"</h2>
-          <span className="text-center torneo-reglas-subtitulo" >Reglas del Torneo</span>
+        <div className="card shadow p-4 torneo-reglas-container scroll-container">
           <div className='torneo-reglas-container'>
-
               <p> 1.La inscripción es gratuita.</p>
               <p> 2.Cada equipo debe tener 20 jugadores.</p>
               <p> 3.El mánager inscribe y representa al equipo.</p>
@@ -64,14 +67,12 @@ const TorneoInscripcionFlujo = () => {
 
         {paso === 2 && (
           <div className="card shadow  container-tipoEquipo">
-           
-
             <div className="form-check ">
-              <input className="form-check-input" type="radio" name="tipoEquipo" value="comunitario" id="comunitario" onChange={handleTipoEquipoChange} />
+              <input className="form-check-input" type="radio" name="tipoEquipo" value="comunitario" id="comunitario" onChange={handleTipoEquipoChange} disabled={opcionSeleccionada} />
               <label className="form-check-label" htmlFor="comunitario">Equipo Comunitario</label>
             </div>
             <div className="form-check">
-              <input className="form-check-input" type="radio" name="tipoEquipo" value="escolar" id="escolar" onChange={handleTipoEquipoChange} />
+              <input className="form-check-input" type="radio" name="tipoEquipo" value="escolar" id="escolar" onChange={handleTipoEquipoChange} disabled={opcionSeleccionada} />
               <label className="form-check-label" htmlFor="escolar">Equipo Escolar</label>
             </div>
           </div>

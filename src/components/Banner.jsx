@@ -10,7 +10,7 @@ const Banner = () => {
         <h1>Desafío de Gigantes</h1>
         <p>Inscríbete en el torneo y demuestra tu grandeza.</p>
         <div>
-          <Link to="/inscripcion-torneo" className="inscripcion-button">Inscripción Torneo</Link>
+          <Link to="/inscripcion-torneo" className="inscripcion-button">INSCRIBETE</Link>
         </div>
        
       </div>

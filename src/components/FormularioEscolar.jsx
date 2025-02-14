@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import { Modal, Button } from "react-bootstrap";
+import { useNavigate } from "react-router-dom";
 
 // Lista de provincias
 const provinciasRD = [
@@ -59,6 +61,17 @@ const FormularioEscolar = () => {
 
   });
   const [loading, setLoading] = useState(false);
+  const [modalShow, setModalShow] = useState(false);
+  const [modalMessage, setModalMessage] = useState("");
+  const [modalError, setModalError] = useState(false);
+  const navigate = useNavigate();
+
+  const handleClose = () => {
+    setModalShow(false);
+    if (!modalError) {
+      navigate("/"); // Redireccionar a la página principal si no hubo error
+    }
+  };
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -82,17 +95,28 @@ const FormularioEscolar = () => {
       });
   
       if (response.ok) {
-        alert("Inscripción guardada con éxito");
+        setModalMessage("✅ Inscripción enviada correctamente. ¡Gracias por registrarte!");
+        setModalError(false);
+        setFormData({
+          nombreEquipo: "",
+          manager: "",
+          telefono: "",
+          email: "",
+          CentroEducativo: "",
+          DistritoEducativo: "",
+          provincia: "",
+          municipio: "",
+          disciplina: ""
+        });
       } else {
-        const errorData = await response.json();
-        console.error("Error en la respuesta:", errorData);
-        alert("Error al enviar la inscripción");
+        setModalMessage("❌ Hubo un problema al enviar la inscripción. Inténtalo de nuevo más tarde.");
+        setModalError(true);
       }
     } catch (error) {
-      console.error("Error en la solicitud:", error);
-      alert("Error en la conexión con el servidor");
+      setModalShow(true);
+      setLoading(false);
     }
-    
+    setModalShow(true);
     setLoading(false);
   };
   
@@ -102,7 +126,7 @@ const FormularioEscolar = () => {
       <h2 className="text-center">Torneo Deportivo "Desafío de Gigantes"</h2>
       <span className="text-center">Formulario de Inscripción Escolar</span>
       <form onSubmit={handleSubmit}>
-        <h4>Datos del Manager</h4>
+        <h4 className="torneo-reglas-subtitulo">Datos del Manager</h4>
         <div className="mb-3">
           <input type="text" placeholder="Nombre Completo" className="form-control" name="manager" value={formData.manager} onChange={handleChange} required />
         </div>
@@ -113,7 +137,7 @@ const FormularioEscolar = () => {
           <input type="email" placeholder="Correo Electrónico" className="form-control" name="email" value={formData.email} onChange={handleChange} required />
         </div>
 
-        <h4>Datos Escolares</h4>
+        <h4 className="torneo-reglas-subtitulo">Datos Escolares</h4>
         <div className="mb-3">
           <input type="text" placeholder="Centro Educativo" className="form-control" name="CentroEducativo" value={formData.CentroEducativo} onChange={handleChange} required />
         </div>
@@ -149,6 +173,13 @@ const FormularioEscolar = () => {
           </button>
         </div>
       </form>
+      <Modal show={modalShow} onHide={handleClose} centered>
+        <Modal.Body className={modalError ? "text-danger text-center" : "text-success text-center"}>
+          {modalMessage}
+          <Button variant="dark" onClick={handleClose}>Cerrar</Button>
+        </Modal.Body>
+      </Modal>
+
     </div>
   );
 };
